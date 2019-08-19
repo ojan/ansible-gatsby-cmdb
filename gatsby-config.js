@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Ansible Gatsby CMDB`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -11,6 +11,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `ansible`,
+        collection: `cache`,
+        server: { address: `localhost`, port: 27017 },
       },
     },
     `gatsby-transformer-sharp`,
